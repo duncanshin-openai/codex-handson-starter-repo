@@ -21,7 +21,7 @@ Create a simple web app involving image gen that could help one of your clients.
 Your task is to create a simple web app with Python backend and React frontend, that uses OpenAI's image-gen-1 model to edit uploaded image based on user prompt
 
 ## Frontend requirements
-1. Any front end requirements
+1. Any frontend requirements
 
 ## Backend requirements
 1. Two functions to create and edit image based on image-gen-1 model is available in the utils.py folder
