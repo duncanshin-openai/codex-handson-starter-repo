@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toolbox Meeting Safety Image Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">현장 안전 툴박스 미팅</p>
+          <h1>오늘의 주의사항을 5개 언어로 시각화하세요</h1>
+          <p class="lede">
+            한국어, 영어, 중국어, 태국어, 말레이시아어로 번역된 메시지를 바탕으로 OpenAI
+            이미지 생성 모델이 명료한 안전 포스터를 만들어줍니다.
+          </p>
+          <div class="hero-actions">
+            <button type="button" id="sample-button" class="ghost">샘플 값 채우기</button>
+            <a
+              class="link"
+              href="https://platform.openai.com/docs/guides/images"
+              target="_blank"
+              rel="noreferrer"
+            >
+              모델 사용 가이드 보기 ↗
+            </a>
+          </div>
+        </div>
+        <div class="badge">GPT Image</div>
+      </header>
+
+      <section class="panel">
+        <form id="prompt-form" class="form">
+          <div class="field">
+            <label for="caution">1. 오늘의 주의사항</label>
+            <textarea
+              id="caution"
+              name="caution"
+              required
+              placeholder="예: 크레인 회전 반경 내 출입 통제, 신호수 지시 준수"
+            ></textarea>
+          </div>
+          <div class="field">
+            <label for="location">2. 위치 (예: 몇동, 어느 작업구역)</label>
+            <input
+              id="location"
+              name="location"
+              required
+              placeholder="예: 3동 옥상 난간부 보수 구간"
+              type="text"
+            />
+          </div>
+          <div class="field">
+            <label for="checks">3. 마무리 작업 시 필수 확인사항</label>
+            <textarea
+              id="checks"
+              name="checks"
+              required
+              placeholder="예: 공구 및 자재 정리, 폐기물 분리배출, 추락방지 펜스 고정 확인"
+            ></textarea>
+          </div>
+          <div class="field inline">
+            <label for="size">이미지 크기</label>
+            <select id="size" name="size">
+              <option value="1024x1024">1024 x 1024 (정방형)</option>
+              <option value="1536x1024">1536 x 1024 (가로)</option>
+              <option value="1024x1536">1024 x 1536 (세로)</option>
+              <option value="auto">자동</option>
+            </select>
+          </div>
+          <button type="submit" class="primary">5개 언어로 이미지 만들기</button>
+        </form>
+        <div id="status" class="status" aria-live="polite"></div>
+      </section>
+
+      <section id="results" class="grid" aria-live="polite"></section>
+    </main>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
